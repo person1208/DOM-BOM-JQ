@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            float: left;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按我</button>
+    <div id="box">
+        <p></p>
+        <p></p>
+        <p class="haha"></p>
+        <p></p>
+        <p class="haha"></p>
+        <p class="haha"></p>
+    </div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var hahas = document.querySelectorAll('#box p.haha');
+        btn.onclick = function() {
+            for (var i = 0; i < hahas.length; i++) {
+                hahas[i].style.backgroundColor = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

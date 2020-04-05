@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">btn</button>
+    <div id="box"></div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('#box');
+        btn.onclick = function() {
+            // console.log(getComputedStyle(box)['width']);
+            console.log(getComputedStyle(box).width);
+        }
+    </script>
+</body>
+
+</html>

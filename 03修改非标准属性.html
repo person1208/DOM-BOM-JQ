@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" data-n="15">请审查我，对着我右键点击检查</div>
+    <button id="btn">按我</button>
+    <script>
+        var box = document.querySelector("#box");
+        var btn = document.querySelector("#btn");
+        btn.onclick = function() {
+            var n = Number(box.getAttribute('data-n'));
+            box.setAttribute('data-n', ++n);
+            console.log(n);
+
+        }
+    </script>
+</body>
+
+</html>

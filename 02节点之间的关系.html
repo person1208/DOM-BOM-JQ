@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            float: left;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            margin-right: 10px;
+        }
+        
+        div {
+            width: 600px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">按我让小明的父亲变绿</button>
+    <button id="btn2">按我让小明的前一个兄弟变粉</button>
+    <button id="btn3">按我让小明的后一个兄弟变红</button>
+    <button id="btn4">按我让盒子的第一个子元素变蓝</button>
+    <button id="btn5">按我让盒子的最后一个子元素变黑</button>
+    <button id="btn6">让所有子节点都变橙</button>
+    <div id="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p id="xiaoming">小明</p>
+        <p></p>
+        <p></p>
+    </div>
+    <script>
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        var btn3 = document.querySelector('#btn3');
+        var btn4 = document.querySelector('#btn4');
+        var btn5 = document.querySelector('#btn5');
+        var btn6 = document.querySelector('#btn6');
+        var xiaoming = document.querySelector('#xiaoming');
+        var box = document.querySelector('#box');
+
+        btn1.onclick = function() {
+
+            // xiaoming.parentNode.style.background = 'red';
+            xiaoming.parentElement.style.background = 'blue';
+            // console.log(xiaoming.parentElement.parentElement);
+        }
+
+        btn2.onclick = function() {
+            xiaoming.previousElementSibling.style.background = 'pink';
+        }
+
+        btn3.onclick = function() {
+            xiaoming.nextElementSibling.style.background = 'pink';
+        }
+
+        btn4.onclick = function() {
+            box.firstElementChild.style.background = 'pink';
+        }
+
+        btn5.onclick = function() {
+            box.lastElementChild.style.background = 'pink';
+        }
+
+        btn6.onclick = function() {
+            console.log(box.childNodes);
+            console.log(box.children);
+
+        }
+    </script>
+</body>
+
+</html>
