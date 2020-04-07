@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            background-color: #333;
+            border-collapse: collapse;
+        }
+        
+        td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table"></table>
+    <script>
+        var table = document.querySelector('#table');
+        for (var i = 0; i < 20; i++) {
+            var tr = document.createElement('tr');
+            table.appendChild(tr);
+            for (var j = 0; j < 12; j++) {
+                var td = document.createElement('td');
+                td.innerText = j;
+                tr.appendChild(td);
+            }
+        }
+    </script>
+</body>
+
+</html>

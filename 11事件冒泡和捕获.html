@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        
+        #box2 {
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        
+        #box3 {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">
+                <button id="btn">按我</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var box1 = document.querySelector('#box1');
+        var box2 = document.querySelector('#box2');
+        var box3 = document.querySelector('#box3');
+        btn.onclick = function() {
+            alert('我是btn');
+            box3.style.background = 'yellow'
+        }
+        box1.onclick = function(e) {
+            alert('我是box1');
+            console.log(e.target);
+            box1.style.background = 'red'
+        }
+        box2.onclick = function() {
+            alert('我是box2');
+            box2.style.background = 'green'
+        }
+        box3.onclick = function(e) {
+            alert('我是box3');
+            box3.style.background = 'blue';
+            console.log(e.target);
+
+        }
+
+        // btn.addEventListener('click', function() {
+        //     alert('btn冒泡');
+        // }, false);
+        // box1.addEventListener('click', function() {
+        //     alert('box1冒泡');
+        // }, false);
+        // box2.addEventListener('click', function() {
+        //     alert('box2冒泡');
+        // }, false);
+        // box3.addEventListener('click', function() {
+        //     alert('box3冒泡');
+        // }, false);
+
+        // btn.addEventListener('click', function() {
+        //     alert('btn捕获');
+        //     btn.style.background = 'yellow'
+        // }, true);
+        // box1.addEventListener('click', function() {
+        //     alert('box1捕获');
+        //     box1.style.background = 'red'
+        // }, true);
+        // box2.addEventListener('click', function() {
+        //     alert('box2捕获');
+        //     box2.style.background = 'green'
+        // }, true);
+        // box3.addEventListener('click', function() {
+        //     alert('box3捕获');
+        //     box3.style.background = 'blue'
+        // }, true);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <button id="add">添加</button>
+    <ul id="list">
+        <li>苹果 <button>删除</button></li>
+        <li>西瓜 <button>删除</button></li>
+        <li>鸭梨 <button>删除</button></li>
+    </ul>
+    <script>
+        var txt = document.querySelector('#txt');
+        var add = document.querySelector('#add');
+        var list = document.querySelector('#list');
+        var del = document.querySelectorAll('button');
+        list.onclick = function(e) {
+            if (e.target.nodeName == 'BUTTON') {
+                list.removeChild(e.target.parentNode);
+
+            }
+
+        }
+        add.onclick = function() {
+            var li = document.createElement('li');
+            li.innerHTML = txt.value + ' <button>删除</button>';
+            list.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>

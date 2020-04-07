@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按我1</button>
+    <button>按我2</button>
+    <button>按我3</button>
+    <button>按我4</button>
+    <button>按我5</button>
+    <button>按我6</button>
+    <button>按我7</button>
+    <button>按我8</button>
+    <button>按我9</button>
+    <button>按我10</button>
+
+    <script>
+        var buttons = document.getElementsByTagName('button');
+
+        // 遍历数组来添加监听
+        // for (var i = 0; i < buttons.length; i++) {
+        //     console.log(buttons[i]);
+        //     buttons[i].onclick = function() {
+        //         alert(i);
+        //     }
+
+        // }
+
+        for (var i = 0; i < buttons.length; i++) {
+            console.log(buttons[i]);
+            (function(i) {
+                buttons[i].onclick = function() {
+                    alert(i);
+                }
+            })(i)
+
+        }
+    </script>
+</body>
+
+</html>

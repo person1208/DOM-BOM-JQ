@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        
+        #box2 {
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        
+        #box3 {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn">æŒ‰æˆ‘</button>
+
+    <script>
+        var btn = document.getElementById('btn');
+
+        // btn.onclick = function () {
+        //     alert('A');
+        // }
+        btn.onclick = function() {
+            alert('B');
+        }
+
+        btn.addEventListener('click', function() {
+            alert('A');
+        }, false);
+
+        btn.addEventListener('click', function() {
+            alert('B');
+        }, false);
+
+        btn.addEventListener('click', function() {
+            alert('C');
+        }, false);
+    </script>
+</body>
+
+</html>

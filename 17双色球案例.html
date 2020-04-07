@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wrap {
+            width: 614px;
+            height: 402px;
+            margin: 50px auto;
+        }
+        
+        .redbox {
+            float: left;
+            width: 380px;
+            height: 280px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        
+        .bluebox {
+            padding: 10px;
+            float: left;
+            width: 190px;
+            height: 280px;
+            border: 1px solid #000;
+        }
+        
+        .redbox p {
+            float: left;
+            width: 35px;
+            height: 35px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 35px;
+            color: white;
+            background: -webkit-linear-gradient(top left, rgb(204, 203, 203), rgb(105, 105, 105));
+            cursor: pointer;
+        }
+        
+        .redbox p.cur {
+            background: -webkit-linear-gradient(top left, red, rgb(88, 14, 14));
+        }
+        
+        .bluebox p {
+            float: left;
+            width: 35px;
+            height: 35px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 35px;
+            color: white;
+            background: -webkit-linear-gradient(top left, rgb(204, 203, 203), rgb(105, 105, 105));
+            cursor: pointer;
+        }
+        
+        .bluebox p.cur {
+            background: -webkit-linear-gradient(top left, rgb(29, 108, 212), rgb(14, 24, 122));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="redbox" class="redbox"></div>
+        <div id="bluebox" class="bluebox"></div>
+        <h3 id="wenzi">当前选择的红球是：</h3>
+        <button id="suiji">随机一注</button>
+    </div>
+    <script>
+        var redbox = document.querySelector('#redbox');
+        var bluebox = document.querySelector('#bluebox');
+        var wenzi = document.querySelector('#wenzi');
+        var suiji = document.querySelector('#suiji');
+
+        for (var i = 1; i <= 33; i++) {
+            var p = document.createElement('p');
+            p.innerText = i;
+            p.setAttribute('data-n', i);
+            redbox.appendChild(p);
+        }
+
+        var redArr = [];
+        redbox.onclick = function(e) {
+            if (e.target.nodeName == 'P') {
+                var n = Number(e.target.getAttribute('data-n'));
+                if (redArr.includes(n)) {
+                    for (var i = 0; i < redArr.length; i++) {
+                        if (redArr[i] == n) {
+                            redArr.splice(i, 1);
+                        }
+                    }
+                    e.target.className = '';
+                } else {
+                    if (redArr.length < 6) {
+                        redArr.push(n);
+                        e.target.className = 'cur'
+                    } else {
+                        alert('最多六个数');
+                    }
+
+                }
+            }
+            console.log(redArr);
+            showNum();
+
+        }
+
+        var nBlue;
+        var bluePs = bluebox.getElementsByTagName('p');
+        bluebox.onclick = function(e) {
+            if (e.target.nodeName == 'P') {
+                var n = e.target.getAttribute('data-n');
+                if (n == nBlue) {
+                    nBlue = '';
+                    e.target.className = '';
+                } else {
+                    nBlue = n;
+                    for (var i = 0; i < bluePs.length; i++) {
+                        bluePs[i].className = '';
+                    }
+                    e.target.className = 'cur';
+                }
+            }
+            console.log(nBlue);
+            showNum();
+        }
+
+
+
+        for (var i = 1; i <= 16; i++) {
+            var p = document.createElement('p');
+            p.innerText = i;
+            p.setAttribute('data-n', i);
+            bluebox.appendChild(p);
+        };
+
+
+
+
+        suiji.onclick = function() {
+            redArr = [];
+            while (redArr.length < 6) {
+                var n = parseInt(Math.random() * 33 + 1);
+                if (!redArr.includes(n)) {
+                    redArr.push(n);
+                }
+            }
+            nBlue = parseInt(Math.random() * 16 + 1);
+            showNum();
+
+            var redPs = redbox.getElementsByTagName('p');
+            for (var i = 0; i < redPs.length; i++) {
+                var n = Number(redPs[i].getAttribute('data-n'));
+                if (redArr.includes(n)) {
+                    redPs[i].className = 'cur';
+                } else {
+                    redPs[i].className = '';
+                }
+            }
+            for (var i = 0; i < bluePs.length; i++) {
+                var n = Number(bluePs[i].getAttribute('data-n'));
+                if (nBlue == n) {
+                    bluePs[i].className = 'cur';
+                } else {
+                    bluePs[i].className = '';
+                }
+            }
+        }
+
+
+
+
+
+
+        function showNum() {
+            redArr.sort(function(a, b) {
+                return a - b
+            });
+            wenzi.innerHTML = '当前选择的红球是：' + redArr.join(',') + ' ' + '蓝球是：' + nBlue;
+        }
+    </script>
+</body>
+
+</html>

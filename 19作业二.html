@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bianhua {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="da">字号增大</button>
+    <button id="xiao">字号减小</button>
+    <p id="zihao">当前字号为22</p>
+    <p id="bianhua">大家一定要加油，不要放弃</p>
+    <script>
+        var da = document.querySelector('#da');
+        var xiao = document.querySelector('#xiao');
+        var zihao = document.querySelector('#zihao');
+        var bianhua = document.querySelector('#bianhua');
+
+        da.onclick = function() {
+            xiao.disabled = false;
+            var n = parseInt(getComputedStyle(bianhua).fontSize);
+            n += 2;
+            if (n == 26) {
+                da.disabled = true;
+            }
+            bianhua.style.fontSize = n + 'px';
+            zihao.innerText = '当前字号为' + n;
+        }
+        xiao.onclick = function() {
+            da.disabled = false;
+            var n = parseInt(getComputedStyle(bianhua).fontSize);
+            n -= 2;
+            if (n == 16) {
+                xiao.disabled = true;
+            }
+            bianhua.style.fontSize = n + 'px';
+            zihao.innerText = '当前字号为' + n;
+        }
+    </script>
+</body>
+
+</html>
