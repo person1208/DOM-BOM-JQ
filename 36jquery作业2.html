@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 400px;
+            margin: 40px auto;
+        }
+        
+        h3 {
+            background-color: orange;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .boxleft {
+            float: left;
+            width: 100px;
+        }
+        
+        .boxright {
+            float: left;
+            overflow-y: auto;
+            height: 130px;
+            width: 296px;
+            border: 1px solid #ccc;
+        }
+        
+        .jieduan {
+            overflow: hidden;
+            display: none;
+        }
+        
+        .jieduan.cur {
+            display: block;
+        }
+        
+        ul li {
+            width: 80px;
+            height: 20px;
+            border: 1px solid #f00;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        ul li.cur {
+            background-color: red;
+        }
+        
+        .boxright .boxright_inn {
+            display: none;
+        }
+        
+        .boxright .boxright_inn.cur {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>阶段一</h3>
+        <div class="jieduan cur">
+            <div class="boxleft">
+                <ul>
+                    <li class="cur"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="boxright">
+                <div class="boxright_inn cur">
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>阶段二</h3>
+        <div class="jieduan">
+            <div class="boxleft">
+                <ul>
+                    <li class="cur"></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="boxright">
+                <div class="boxright_inn cur">
+                    <p>阶段二哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段二啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                </div>
+
+            </div>
+        </div>
+
+        <h3>阶段三</h3>
+        <div class="jieduan">
+            <div class="boxleft">
+                <ul>
+                    <li class="cur"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="boxright">
+                <div class="boxright_inn cur">
+                    <p>阶段三哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段三啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>阶段四</h3>
+        <div class="jieduan">
+            <div class="boxleft">
+                <ul>
+                    <li class="cur"></li>
+                    <li></li>
+                    <li>1</li>
+                </ul>
+            </div>
+            <div class="boxright">
+                <div class="boxright_inn cur">
+                    <p>阶段四哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                    <p>阶段一哈哈哈哈</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                    <p>阶段一啦啦啦啦</p>
+                </div>
+                <div class="boxright_inn">
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                    <p>阶段一嘻嘻嘻嘻</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('h3').click(function() {
+            if (!$(this).next().is(':visible')) {
+                $('.jieduan').slideUp();
+                $(this).next().slideDown();
+                hn = $(this).index();
+            }
+        });
+        $('li').click(function() {
+            $(this).addClass('cur').siblings().removeClass('cur');
+            var n = $(this).index();
+            $(this).parents('.boxleft').next().find('.boxright_inn').fadeOut(100);
+            $(this).parents('.boxleft').next().find('.boxright_inn').eq(n).fadeIn(100);
+        });
+    </script>
+</body>
+
+</html>

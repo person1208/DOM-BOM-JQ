@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = '我我我我爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱爱你你你你你你你你你你你你你你你你你你你你你你你你啊啊啊嘻嘻嘻嘻';
+        var i = 0;
+        var j = 1;
+        var max = 0;
+        var maxStr = '';
+        while (str[i] != undefined) {
+            if (str[i] != str[j]) {
+                if (j - i > max) {
+                    max = j - i;
+                    maxStr = str[i]
+
+
+                }
+                i = j;
+            }
+            j++;
+        }
+        console.log(max, maxStr);
+    </script>
+</body>
+
+</html>

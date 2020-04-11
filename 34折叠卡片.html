@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 40px auto;
+        }
+        
+        .box h3 {
+            line-height: 30px;
+            border: 1px solid #000;
+            cursor: pointer;
+            background-color: skyblue;
+        }
+        
+        .box .inn {
+            display: none;
+        }
+        
+        .box .inn.no0 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>哈哈哈</h3>
+        <div class="inn no0">
+            <p>内容1内容1内容1内容1内容1内容1内容1内容1内容1</p>
+            <p>内容1内容1内容1内容1内容1内容1内容1内容1内容1</p>
+            <p>内容1内容1内容1内容1内容1内容1内容1内容1内容1</p>
+        </div>
+        <h3>哈哈哈</h3>
+        <div class="inn">
+            <p>内容2内容2内容2内容2内容2</p>
+            <p>内容2内容2内容2内容2内容2内容2内容2</p>
+            <p>内容2内容2内容2内容2内容2</p>
+        </div>
+        <h3>哈哈哈</h3>
+        <div class="inn">
+            <p>内容3内容3内容3内容3内容3内容3内容3</p>
+            <p>内容3内容3内容3内容3内容3内容3内容3</p>
+            <p>内容3内容3内容3内容3内容3内容3内容3</p>
+            <p>内容3内容3内容3内容3内容3内容3内容3</p>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // $('h3').click(function() {
+        //     $(this).next().addClass('no0').siblings('.inn').removeClass('no0');
+        // });
+
+
+        $('h3').click(function() {
+            if (!$(this).next().is(':visible')) {
+                $('.inn').slideUp();
+                $(this).next().slideDown();
+            } else {
+                $(this).next().slideUp();
+            }
+
+        });
+    </script>
+</body>
+
+</html>

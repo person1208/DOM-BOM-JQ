@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>我喜欢的明星</h3>
+    <ul id="list1">
+        <li><label><input type="checkbox" name="star1" id="">易烊千玺</label></li>
+        <li><label><input type="checkbox" name="star2" id="">王俊看</label></li>
+        <li><label><input type="checkbox" name="star3" id="">王一博</label></li>
+    </ul>
+    <button id="btn1">把选择的改为不喜欢</button>
+
+    <h3>我不喜欢的明星</h3>
+    <ul id="list2">
+        <li><label><input type="checkbox" name="star4" id="">周杰伦</label></li>
+        <li><label><input type="checkbox" name="star5" id="">陈奕迅</label></li>
+        <li><label><input type="checkbox" name="star6" id="">杨洋</label></li>
+    </ul>
+    <button id="btn2">把选择的改为喜欢</button>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#btn1').click(function() {
+            $('#list1 input:checked').prop('checked', false).parents('li').appendTo($('#list2'));
+        });
+        $('#btn2').click(function() {
+            $('#list2 input:checked').prop('checked', false).parents('li').appendTo($('#list1'));
+        });
+    </script>
+</body>
+
+</html>

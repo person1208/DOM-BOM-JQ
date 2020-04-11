@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bianhua {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="da">字号增大</button>
+    <button id="xiao">字号减小</button>
+    <p id="zihao">当前字号为22</p>
+    <p id="bianhua">大家一定要加油，不要放弃</p>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#da').click(function() {
+            var zh = parseInt($('#bianhua').css('fontSize'));
+            zh += 2;
+            $('#bianhua').css('fontSize', zh + 'px');
+            $('#zihao').text('当前字号为' + zh);
+            if (zh == 30) {
+                $(this).attr('disabled', true)
+            }
+            $('#xiao').attr('disabled', false)
+        });
+        $('#xiao').click(function() {
+            var zh = parseInt($('#bianhua').css('fontSize'));
+            zh -= 2;
+            $('#bianhua').css('fontSize', zh + 'px');
+            $('#zihao').text('当前字号为' + zh);
+            if (zh == 16) {
+                $(this).attr('disabled', true)
+            }
+            $('#da').attr('disabled', false)
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        ol {
+            list-style: none;
+        }
+        
+        .box {
+            width: 640px;
+            height: 432px;
+            margin: 90px auto;
+            border: 1px solid;
+        }
+        
+        .top {
+            width: 640px;
+            height: 360px;
+            overflow: hidden;
+        }
+        
+        ul {
+            position: relative;
+        }
+        
+        ul li {
+            width: 640px;
+            height: 360px;
+        }
+        
+        ul li img {
+            width: 640px;
+            height: 360px;
+        }
+        
+        .bottom {
+            width: 640px;
+            height: 72px;
+        }
+        
+        ol li {
+            width: 122px;
+            float: left;
+            padding: 2px 3px;
+            background-color: #000;
+        }
+        
+        ol li.cur {
+            background-color: orange;
+        }
+        
+        ol li img {
+            width: 122px;
+            height: 64px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <ul>
+                <li>
+                    <a href=""><img src="images/0.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/4.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <ol>
+                <li class="cur">
+                    <a href=""><img src="images/0.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/4.jpg" alt=""></a>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var n = 0;
+        $('ul li').eq(0).clone().appendTo('ul');
+        $('ol li').mouseenter(function() {
+            // if ($('ul').is(':animated')) {
+            //     return;
+            // }
+            n = $(this).index();
+
+            $('ul').stop(true).animate({
+                'top': -360 * n
+            }, 2000);
+
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+
+        var lock = true;
+        setInterval(function() {
+            console.log(lock, n);
+            if (lock) {
+                n++;
+                $('ul').animate({
+                    'top': -360 * n
+                }, 2000, function() {
+                    if (n > 4) {
+                        n = 0;
+                        $('ul').css('top', 0)
+                    }
+                });
+                $('ol li').eq(n % 5).addClass('cur').siblings().removeClass('cur');
+            }
+
+        }, 3000);
+
+        $('.box').mouseenter(function() {
+            lock = false;
+        });
+
+
+        $('.box').mouseleave(function() {
+            lock = true;
+        });
+    </script>
+</body>
+
+</html>

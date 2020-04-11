@@ -9,9 +9,31 @@
 
 <body>
     <script>
-        var str = 'aabbbbbccdd';
-        for (var i = 0; i < str.length; i++) {
+        var str = 'aabbbcccccccccccccccddeefffffffffffff';
+        var i = 0;
+        var j = 1;
+        // while (str[i] != '') {
+        //     if (str[j] != str[i]) {
+        //         if (j - i >= 3) {
+        //             console.log(i, j);
 
+        //         }
+        //         i = j;
+        //     }
+        //     j++;
+        // }
+
+        while (str[i] != undefined) {
+            if (str[i] == str[j]) {
+                j++;
+            } else {
+                if (j - i >= 3) {
+                    console.log(i, j);
+
+                }
+                i = j;
+                j++
+            }
         }
     </script>
 </body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .carousel {
+            width: 900px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel ul {
+            list-style: none;
+            width: 20000px;
+            position: relative;
+        }
+        
+        .carousel ul li {
+            float: left;
+        }
+        
+        .carousel ul li.no0 {
+            display: block;
+        }
+        
+        .carousel .btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(238, 168, 5, 0.733);
+            border-radius: 50%;
+            margin-top: -25px;
+            top: 50%;
+        }
+        
+        .carousel .leftbtn {
+            left: 10px;
+        }
+        
+        .carousel .rightbtn {
+            right: 10px;
+        }
+        
+        .carousel ol {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+            list-style: none;
+            width: 200px;
+            height: 20px;
+        }
+        
+        .carousel ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: rgba(238, 168, 5, 0.733);
+            cursor: pointer;
+        }
+        
+        .carousel ol li.cur {
+            background-color: rgb(255, 60, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel" id="carousel">
+        <ul>
+            <li class="no0"><img src="images/0.jpg"></li>
+            <li><img src="images/1.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/4.jpg"></li>
+            <li><img src="images/5.jpg"></li>
+        </ul>
+        <a href="javascript:;" id="leftbtn" class="leftbtn btn"></a>
+        <a href="javascript:;" id="rightbtn" class="rightbtn btn"></a>
+        <ol>
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var n = 0;
+        $('ul li').eq(0).clone().appendTo('ul');
+        $('#rightbtn').click(function() {
+
+            if ($('ul').is(':animated')) {
+                return;
+            }
+            n++;
+            $('ul').animate({
+                'left': -900 * n
+            }, 500, function() {
+                if (n > 5) {
+                    n = 0;
+                    $('ul').css('left', 0);
+                }
+            });
+            $('ol li').eq(n % 6).addClass('cur').siblings().removeClass('cur');
+
+        });
+
+        $('#leftbtn').click(function() {
+            if ($('ul').is(':animated')) {
+                return;
+            }
+            if (n == 0) {
+                n = 6;
+                $('ul').css('left', -900 * 6)
+            }
+            n--;
+            $('ul').animate({
+                'left': -900 * n
+            }, 1200);
+            $('ol li').eq(n % 6).addClass('cur').siblings().removeClass('cur');
+        })
+
+        $('ol li').click(function() {
+            // $('ul li').eq(n).css('left', -900 * n);
+            n = $(this).index();
+            $('ul').animate({
+                'left': -900 * n
+            }, 1200)
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+
+        var lock = true;
+        setInterval(function() {
+            if (lock) {
+                $('#rightbtn').trigger('click')
+            }
+        }, 1000);
+        $('#carousel').mouseenter(function() {
+            lock = false;
+        });
+        $('#carousel').mouseleave(function() {
+            lock = true;
+        });
+    </script>
+</body>
+
+</html>
